@@ -1,7 +1,7 @@
 {
-  "name": "project-todo",
+  "name": "template-repo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Live url:",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,16 @@
     "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Stelios Pnevmatikakis",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/eslintrc": "^3.0.2",
+    "@eslint/js": "^9.0.0",
     "css-loader": "^6.10.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.0.0",
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^3.3.4",
     "webpack": "^5.91.0",
@@ -22,5 +28,14 @@
   },
   "dependencies": {
     "date-fns": "^3.6.0"
-  }
+  },
+  "main": "webpack.common.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Steliospne/Template-Repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Steliospne/Template-Repo/issues"
+  },
+  "homepage": "https://github.com/Steliospne/Template-Repo#readme"
 }
