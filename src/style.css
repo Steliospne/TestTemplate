@@ -1,0 +1,449 @@
+:root {
+    --form-size: 1.2rem;
+    --dlt-form-width: max-content;
+}
+
+@font-face {
+    font-family: "Overlock";
+    src: url(/src/assets/fonts/Overlock-Regular.ttf);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Overlock";
+}
+
+body {
+    height: 100vh;
+}
+
+.main {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 150px 1fr;
+    grid-template-areas:
+        "nav-bar header"
+        "nav-bar display"
+        "nav-bar footer";
+}
+
+header {
+    position: relative;
+    grid-area: header;
+    display: flex;
+    background: #f7c566;
+    align-items: center;
+}
+
+.nav-bar {
+    grid-area: nav-bar;
+    display: flex;
+    flex-direction: column;
+    background-color: #dc6b19;
+    z-index: 1;
+    gap: 10px;
+}
+
+.display {
+    grid-area: display;
+    display: flex;
+    flex-direction: column;
+}
+
+.display > h1 {
+    color: #dc6b19;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    height: 75px;
+    background: #f7c566;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > a {
+    margin: 0 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background: unset;
+    border: none;
+    color: black;
+}
+
+.github-logo {
+    width: 25px;
+    height: 25px;
+    background-image: url("./assets/images/logo-github.svg");
+    background-repeat: no-repeat;
+}
+
+footer > a:hover > i {
+    animation: spinLogo 900ms forwards ease-in-out;
+}
+
+a:visited {
+    color: #dc6b19;
+}
+
+.logo {
+    flex: 1;
+}
+
+.add-btn {
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    border: none;
+    background: unset;
+}
+
+i.add-btn-icon {
+    background-image: url("./assets/images/plus-circle.svg");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+}
+
+i.home-btn-icon {
+    background-image: url("./assets/images/home.svg");
+    margin-right: 5px;
+    margin-top: 5vh;
+}
+
+i.project-btn-icon {
+    background-image: url("./assets/images/coffee.svg");
+    margin-right: 5px;
+}
+
+.description-btn,
+.inspectBtn,
+.editBtn,
+.deleteBtn,
+i.home-btn-icon,
+i.project-btn-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    filter: invert(91%) sepia(21%) saturate(496%) hue-rotate(319deg)
+        brightness(107%) contrast(105%);
+}
+
+.description-btn:hover,
+.back-btn:hover,
+.inspectBtn:hover,
+.editBtn:hover,
+.deleteBtn:hover,
+i.add-btn-icon:hover,
+.home-btn.active > i,
+.project-btn.active > i {
+    filter: invert(8%) sepia(97%) saturate(5240%) hue-rotate(314deg)
+        brightness(65%) contrast(99%);
+}
+
+.home-btn,
+.project-btn {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border: none;
+    background: unset;
+    color: #fff8dc;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.back-btn {
+    background-image: url("./assets/images/return-up-back-outline.svg");
+    margin-left: 10px;
+}
+
+.home-btn.active,
+.project-btn.active {
+    color: #6c0345;
+    scale: 1.2;
+}
+
+.task-card,
+.project-card {
+    margin: 5px;
+    padding: 10px;
+    background-color: #dc6b19;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr auto;
+    color: #fff8dc;
+    font-size: 1.2rem;
+    gap: 10px;
+}
+
+.project-card {
+    grid-template-columns: 1fr auto;
+}
+
+.task-card.animation,
+.project-card.animation {
+    position: relative;
+    animation: slidein 1s ease-in-out;
+}
+
+.description-btn {
+    background-image: url("./assets/images/more-vertical.svg");
+}
+
+.inspectBtn {
+    background-image: url("./assets/images/eye.svg");
+}
+
+.editBtn {
+    background-image: url("./assets/images/edit-2.svg");
+}
+
+.deleteBtn {
+    background-image: url("./assets/images/trash-2.svg");
+}
+
+.description-btn,
+.back-btn,
+.inspectBtn,
+.deleteBtn,
+.editBtn {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+dialog {
+    position: absolute;
+    height: 400px;
+    width: 550px;
+    top: calc(50vh - 200px);
+    left: calc(50vw - 275px);
+    background-color: #fff8dc;
+    border: 5px solid;
+    border-color: #6c0345;
+}
+
+dialog#description {
+}
+
+dialog#description > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+dialog#description > div > p {
+    flex: 1;
+    align-self: flex-start;
+}
+
+dialog#description > div > * {
+    color: #6c0345;
+    margin: 20px;
+}
+
+dialog#deleteControl {
+    height: 120px;
+    width: 400px;
+    left: calc(50vw - 200px);
+    top: calc(50vh - 60px);
+}
+
+div.delete-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.warning {
+    color: red;
+}
+
+.form-wrapper {
+    height: 100%;
+    margin: 20px;
+    display: grid;
+    grid-template-rows: repeat(4, auto) 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "name nameInput"
+        "description ."
+        "date ."
+        "priority priority"
+        "buttons buttons";
+    gap: 4px;
+    overflow: hidden;
+}
+
+label.name {
+    grid-area: name;
+}
+
+input#name {
+    grid-area: nameInput;
+}
+
+label.description {
+    grid-area: description;
+}
+
+textarea#description {
+    resize: none;
+}
+
+label.date {
+    grid-area: date;
+}
+
+div.priority {
+    grid-area: priority;
+}
+
+div.form-btn {
+    grid-area: buttons;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+div#priority {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bold;
+}
+
+div#priority > div > label {
+    display: grid;
+    font-size: var(--form-size);
+    grid-template-columns: var(--form-size) auto;
+    gap: calc(var(--form-size) / 2);
+}
+
+input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    height: var(--form-size);
+    width: var(--form-size);
+    border: calc(var(--form-size) * 0.15) solid black;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    transform: translateY(calc((var(--form-size) * 0.15) / 2));
+}
+
+input[type="radio"]::before {
+    content: "";
+    height: calc(var(--form-size) / 2);
+    width: calc(var(--form-size) / 2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset var(--form-size) var(--form-size) #6c0345;
+    background-color: CanvasText; /*  forced-colors */
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="radio"]:focus {
+    outline: max(2px, calc(var(--form-size) * 0.15)) solid #6c0345;
+    outline-offset: max(2px, calc(var(--form-size) * 0.15));
+}
+
+div#priority > div > label:focus-within {
+    color: #6c0345;
+}
+
+div.form-btn > button {
+    padding: 15px;
+    border: none;
+    background-color: unset;
+    font-size: 1.3rem;
+}
+
+button.submit:focus,
+button.submit:hover {
+    animation: breath 2s ease-in-out infinite;
+}
+
+button.cancel:focus,
+button.cancel:hover {
+    color: red;
+    font-weight: 700;
+    animation: breath 2s ease-in-out infinite;
+}
+
+label.name,
+label.description,
+label.date,
+div.priority > label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #6c0345;
+}
+
+input#name,
+textarea#description,
+input#date {
+    font-size: 1rem;
+    border: #6c0345 solid 2px;
+    padding: 2.5px 5px;
+}
+
+@keyframes spinLogo {
+    0% {
+        transform: rotate(0deg);
+        scale: 1;
+    }
+    100% {
+        transform: rotate(360deg);
+        scale: 1.2;
+        margin: 0 5px;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        left: -1000px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes breath {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.2;
+    }
+    100% {
+        scale: 1;
+    }
+}
