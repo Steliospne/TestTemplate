@@ -1,4 +1,3 @@
-# To-Do
-The Odin Project: To-Do
+# Some Cool Name
 
-Live url: https://steliospne.github.io/Project-To-Do/
+Live url:
