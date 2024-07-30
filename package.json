@@ -4,7 +4,7 @@
   "description": "Live url:",
   "private": true,
   "scripts": {
-    "test": "jest",
+    "test": "npx jest --watch ./src/**/*-test.js",
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
@@ -21,7 +21,7 @@
     "html-webpack-plugin": "^5.6.0",
     "jest": "^29.7.0",
     "style-loader": "^3.3.4",
-    "webpack": "^5.91.0",
+    "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.10.0"
